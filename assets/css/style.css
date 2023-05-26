@@ -96,6 +96,15 @@ h6 {
   }
 }
 
+
+#loading {
+  text-align: center;
+  margin-top: 450px;
+  color: #c5c5c5; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold; 
+}
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
