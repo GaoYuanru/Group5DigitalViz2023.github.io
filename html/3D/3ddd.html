@@ -51,13 +51,22 @@
     });
 
     // Add 3D Tiles tileset.
-    const tileset = viewer.scene.primitives.add(
-      new Cesium.Cesium3DTileset({
-        url: "https://tile.googleapis.com/v1/3dtiles/root.json?key=AIzaSyA4-eUYvAnbB_8G8U9grjv87XF0dt4bP5E",
-        // This property is required to display attributions as required.
-        showCreditsOnScreen: true,
-      })
-    );
+   (async () => {
+    try {
+        const tileset = await Cesium.Cesium3DTileset.fromUrl(
+            "https://tile.googleapis.com/v1/3dtiles/root.json?key=AIzaSyAzeVUh4wNyc306DhhCf4oz71GP62P_7Uk", 
+            {
+                // This property is required to display attributions as required.
+                showCreditsOnScreen: true,
+            }
+        );
+        // 将 tileset 添加到 viewer.scene.primitives
+        viewer.scene.primitives.add(tileset);
+
+    } catch (error) {
+        console.error("Error loading 3D Tileset:", error);
+    }
+})();
 
     var infobox = new Cesium.Entity({
       name: "Infobox",
